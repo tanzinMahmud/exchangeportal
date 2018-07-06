@@ -5,7 +5,7 @@ router.get('/', function(req, res){
 });
 
 router.get('/afterSignup', function(req, res){
-	res.render('signup/after');
+	res.render('signup/afterSignup');
 });
 
 module.exports = router;
