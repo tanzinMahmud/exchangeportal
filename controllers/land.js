@@ -3,6 +3,9 @@ var router = express.Router();
 router.get('/', function(req,res){
 	res.render('land');
 });
+router.get('/land', function(req,res){
+	res.render('land');
+});
 
 module.exports = router;
 
