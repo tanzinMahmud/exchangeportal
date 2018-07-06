@@ -3,6 +3,7 @@ var express = require('express');
 var app = express();
 var port = 1337;
 var bodyParser = require('body-parser');
+var mysql = require('mysql');
 
 var land = require('./controllers/land');
 var allExchangeableAds = require('./controllers/allExchangeableAds');
