@@ -17,7 +17,7 @@ app.set('view engine', 'ejs');
 // MIDDLEWARES
 
 
-// Routes
+// ROUTES
 app.use('/land',land);
 app.use('/allExchangeableAds',allExchangeableAds);
 app.use('/login',login);
