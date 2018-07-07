@@ -10,4 +10,10 @@ router.get('/loginFirst', function(req, res){
 
 });
 
+router.get('/index', function(req, res){
+	req.session.destroy(function(err){
+		res.render('login/login');
+	});
+});
+
 module.exports = router;
