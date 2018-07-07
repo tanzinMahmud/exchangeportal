@@ -10,7 +10,6 @@ var land = require('./controllers/land');
 var allExchangeableAds = require('./controllers/allExchangeableAds');
 var login = require('./controllers/login');
 var signup = require('./controllers/signup');
-var AfterSignInPage = require('./controllers/AfterSignInPage');
 
 // CONFIGURATION
 app.set('view engine', 'ejs');
@@ -25,7 +24,6 @@ app.use('/land',land);
 app.use('/allExchangeableAds',allExchangeableAds);
 app.use('/login',login);
 app.use('/signup',signup);
-app.use('/AfterSignInPage',AfterSignInPage);
 
 app.get('/', function(req, res){
 	res.redirect('/land')
