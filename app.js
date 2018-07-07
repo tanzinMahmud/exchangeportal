@@ -11,6 +11,7 @@ var allExchangeableAds = require('./controllers/allExchangeableAds');
 var login = require('./controllers/login');
 var signup = require('./controllers/signup');
 var home = require('./controllers/home');
+var admin = require('./controllers/admin');
 
 
 // CONFIGURATION
@@ -27,6 +28,7 @@ app.use('/allExchangeableAds',allExchangeableAds);
 app.use('/login',login);
 app.use('/signup',signup);
 app.use('/home',home);
+app.use('/admin',admin);
 
 app.get('/', function(req, res){
 	res.redirect('/land')
