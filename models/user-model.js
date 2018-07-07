@@ -1,34 +1,27 @@
-var mysql = require('mysql');
-var connection = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password: '',
-	database: 'exchange_portal'
-});
-
+var db = require('./db');
 module.exports = {
-	validateUser: function(name, email, password, callback){
-		///var sql = "SELECT * FROM users WHERE username=? AND password=?";
-		var sql = "UPDATE customer SET customer_id=null, first_name=?, email=?, password=?";
-		var sqlParam = [name, email, password];
-		connection.query(sql, sqlParam, function(error, result){
-			if(error)
-			{
-				//console.log(error);
-				callback(false);
-			}
-			else
-			{
-				if(result.length == 0)
-				{
-					callback(false);
-				}
-				else
-				{
-					//console.log(result);
-					callback(true);
-				}
-			}
+	getAll: function(callback){
+		var sql = "SELECT * FROM categories";
+		db.executeQuery(sql, null, function(result){
+			callback(result);
 		});
+	},
+	get: function(id, callback){
+		var sql = "SELECT * FROM customer WHERE email=?";
+		db.executeQuery(sql, [id], function(result){
+			callback(result[0]);
+		});
+	},
+	insert: function(customer, callback){
+		var sql = "INSERT INTO customer VALUES (null, ?, null, ?, ?, null, null, null, null, null, null)";
+		db.executeQuery(sql, [customer.name, customer.email, customer.password], function(result){
+			callback(result);
+		});
+	},
+	update: function(id, name, description, callback){
+		var sql = "UPDATE categories SET name=?, description=? WHERE id=?";
+		db.executeQuery(sql, [name, description, id], function(result){
+			callback(result);
+		})
 	}
 };
